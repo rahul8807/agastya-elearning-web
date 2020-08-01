@@ -7,6 +7,7 @@ import {
 import { TimelineMax, TimelineLite } from 'gsap';
 import { stagger } from '@angular/animations';
 import { ContentService } from 'src/app/services/content.service';
+import { Category } from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -17,7 +18,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   overlayTl: TimelineMax;
   bannerTl: TimelineMax;
   to: any;
-  categories: import('c:/Users/Admin/workspace/agastya/agastya-elearning-ui/src/app/models/category.model').Category[];
+  //categories: import('c:/Users/Admin/workspace/agastya/agastya-elearning-ui/src/app/models/category.model').Category[];
+  categories:Category[];
 
   constructor(private contentService: ContentService) {}
 

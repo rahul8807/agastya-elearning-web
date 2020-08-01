@@ -28,6 +28,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ClickOutsideDirective } from './utility/click-outside.directive';
 import { ArrowLeftComponent } from './svg/arrow-left/arrow-left.component';
 import { ArrowRightComponent } from './svg/arrow-right/arrow-right.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ArrowRightComponent } from './svg/arrow-right/arrow-right.component';
     MatMenuModule,
     MatButtonModule,
     LayoutModule,
+    NgbModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
