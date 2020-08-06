@@ -46,6 +46,11 @@ export class ContentService {
     );
   }
 
+  getRecentCourses() : Observable<Course[]>{
+    return this.httpClient.get<Course[]>(CONSTANTS.CONTENT_SERVICE_URL + 'courses');
+  }
+
+
   getCoursesByCategory(category: Category) {
     return this.httpClient.get<Course[]>(
       CONSTANTS.CONTENT_SERVICE_URL + 'courses' + `?category.id=${category.id}`
