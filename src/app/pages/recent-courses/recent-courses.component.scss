@@ -1,5 +1,88 @@
 @import "../../theme/general.scss";
 
+/*
+grad1 {
+  height: 200px;
+  background-color: red; /* For browsers that do not support gradients */
+  /*background-image: linear-gradient(red, yellow); /* Standard syntax (must be last) */
+/*}
+*/
+
+.main-Courses{
+  border-left: 3px solid orangered; 
+   height: 2.5em;
+   cursor: pointer;
+}
+
+.main-Courses:hover{
+  border-left: 3px solid orangered; 
+  border-bottom: 3px solid orangered;
+   height: 2.5em;
+   cursor: pointer;
+   color:orangered;
+}
+
+
+.left-panel-courses{
+  align-content: center;
+   border-left: 3px solid orangered;
+   cursor: pointer;
+} 
+
+
+.left-panel-courses:hover{
+  align-content: center;
+  border-left: 3px solid orangered;
+  border-bottom: 3px solid orangered;
+  cursor: pointer;
+  color: orangered;
+} 
+
+
+::ng-deep .zoom-image:hover{
+  transform: scale(1.01);
+  border-bottom: thick solid orangered;
+  cursor: pointer;
+}
+
+
+::ng-deep .container-image { 
+  position: relative; 
+  width: 100%; /* for IE 6 */
+}
+
+.course1-content { 
+  position: absolute; 
+  padding:10px;
+  left: 0; 
+  width: 100%; 
+  font-size: 18px;
+}
+
+.course1-content-cousename { 
+  position: absolute; 
+  
+  left: 0; 
+  width: 100%; 
+  font-size: 18px;
+}
+
+.course1-content-description { 
+  position: absolute; 
+ 
+  left: 0; 
+  width: 100%; 
+  font-size: 18px;
+}
+
+.grad1 { 
+  height: 100%;
+  background-image: linear-gradient( #f7971e #ffd200); 
+}
+
+::ng-deep .mat-figure{
+  display: block !important;
+}
 
 ::ng-deep .onhover:hover{
     color: gray;
@@ -12,47 +95,18 @@
     padding-top: 10px;
  }
 
+
 .cases {
   min-height: 50vh; //fallback
   position: relative;
   margin-bottom: 65px;
-  .cases-navigation {
-    position: absolute;
-    top: 42%;
-    width: inherit;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 6;
-    padding: 0 37px;
-    box-sizing: border-box;
-    @include media("<=tablet") {
-      // display: none;
-      padding: 0 16px;
-    }
-    .cases-arrow {
-      background: rgba(0, 0, 0, 0.4);
-      height: 72px;
-      width: 72px;
-      border-radius: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      svg {
-        color: $white;
-        height: 28px;
-        width: 28px;
-      }
-      &.disabled {
-        opacity: 0.3;
-      }
-    }
-  }
+ 
+  
   .row {
     @include media("<=tablet") {
       flex-direction: column;
       padding: 0;
-    }
+    }  
     .cases-title {
       position: absolute;
       top: -30px;
@@ -202,4 +256,62 @@
       }
     }
   }
+}
+
+
+.row{
+  .left-panel{
+    height: 100%;
+    width: 60%;
+    float: left;
+    padding-right: 40px;
+    
+
+    @include media("<=tablet") {
+      background-color: pink;
+      width: 60%;
+    } 
+    @include media("<=phone") {
+      padding:10px ;
+      width: 100%;
+      background-color: green;
+      
+    }
+
+
+     
+
+  }
+  .right-panel{
+    height: 100%;
+    width: 40%;
+    float: right;
+
+    @include media("<=tablet") {
+      background-color: pink;
+      width: 40%;
+    } 
+    @include media("<=phone") {
+      padding:10px ;
+      background-color: green;
+      display: none;
+    }
+
+  }
+}
+
+
+.container-recentcourses {
+  position: relative;
+}
+
+/* Bottom right text */
+.text-block-recentcourses {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }

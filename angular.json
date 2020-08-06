@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
 
-            "outputPath": "dist/agastya-elearning-web",
+            "outputPath": "docs/",
 
             "index": "src/index.html",
             "main": "src/main.ts",
