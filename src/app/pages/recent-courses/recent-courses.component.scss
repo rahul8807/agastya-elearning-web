@@ -1,31 +1,76 @@
 @import "../../theme/general.scss";
 
-/*
-grad1 {
-  height: 200px;
-  background-color: red; /* For browsers that do not support gradients */
-  /*background-image: linear-gradient(red, yellow); /* Standard syntax (must be last) */
-/*}
-*/
 
-.main-Courses{
-  border-left: 3px solid orangered; 
-   height: 2.5em;
-   cursor: pointer;
+
+img{
+  filter: brightness(0.90);
 }
 
-.main-Courses:hover{
-  border-left: 3px solid orangered; 
-  border-bottom: 3px solid orangered;
-   height: 2.5em;
-   cursor: pointer;
-   color:orangered;
+/*** Left panel Start ****/
+.left-panel-main-container { 
+  position: relative; 
+  width: 100%; /* for IE 6 */
+  display: inline-block;
+  overflow: hidden;
+  height: 23.5em;
+  color: white;
+  img{
+    filter: brightness(0.80);
+  } 
 }
 
+ .left-panel-main-container img { 
+  transition: transform .4s; 
+  width: 100%; 
+  height: 23.5em;
+}
+
+.left-panel-main-container .course-content { 
+  position: absolute; 
+  padding:10px;
+  left: 0; 
+  width: 100%; 
+  cursor: pointer;  
+}
+
+
+/*** Left panel ends ****/
+
+/*** Left panel second section  Start***/
+
+.section2-courses{
+  height: 2.5em;
+  cursor: pointer;
+}
+
+.section2-courses:hover{
+  cursor: pointer;
+  
+}
+
+.section2-courses-img-container{   
+  display: inline-block;
+  overflow: hidden;
+  img:hover{
+    transform: scale(1.05);
+    transform-origin: 5% 5% 5% 5%;
+    border-bottom: 5px solid orangered;
+    cursor: pointer;
+  }
+}
+
+.section2-courses-img-container-img{
+  width: 100%; 
+  height: 14em;
+}
+
+/** Left panel second section end **/
+
+
+/*** Left panel courses Start **/
 
 .left-panel-courses{
   align-content: center;
-   border-left: 3px solid orangered;
    cursor: pointer;
 } 
 
@@ -33,47 +78,47 @@ grad1 {
 .left-panel-courses:hover{
   align-content: center;
   border-left: 3px solid orangered;
-  border-bottom: 3px solid orangered;
   cursor: pointer;
-  color: orangered;
-} 
+  h5{
+    color: black;
+  }
+  h3{
+    color: #787878;
+  }
+}
+
+/** Left panel course end **/
 
 
-::ng-deep .zoom-image:hover{
-  transform: scale(1.01);
-  border-bottom: thick solid orangered;
-  cursor: pointer;
+.main-Courses:hover{
+   height: 2.5em;
+   cursor: pointer;
 }
 
 
-::ng-deep .container-image { 
-  position: relative; 
-  width: 100%; /* for IE 6 */
-}
 
-.course1-content { 
-  position: absolute; 
-  padding:10px;
-  left: 0; 
-  width: 100%; 
-  font-size: 18px;
-}
 
-.course1-content-cousename { 
-  position: absolute; 
-  
-  left: 0; 
-  width: 100%; 
-  font-size: 18px;
-}
 
-.course1-content-description { 
-  position: absolute; 
+
  
-  left: 0; 
-  width: 100%; 
-  font-size: 18px;
+
+
+ .zoom-image:hover{
+  transform: scale(1.2);
+  transform-origin: 20% 20% 20% 20%;
+  cursor: pointer;
 }
+
+
+
+
+ 
+
+
+
+
+
+
 
 .grad1 { 
   height: 100%;
@@ -258,13 +303,45 @@ grad1 {
   }
 }
 
+.main-panel{
+  @include media("<=tablet") {
+   display: none;
+  } 
+  @include media("<=phone") {
+    display: none;
+  }
+}
+
+.tablet-only{
+  padding: 15px;
+  display: none;
+  @include media(( "<=tablet") and (">=phone")){
+    display: block;
+   } 
+   @include media(">tablet"){
+    display: none;
+   }  
+  
+}
+
+.mobile-only{
+  padding: 15px;
+  display: none;
+   @include media  ("<=phone") {
+     display: block;
+   }
+}
 
 .row{
+  
+
   .left-panel{
     height: 100%;
     width: 60%;
     float: left;
     padding-right: 40px;
+    width: 100vh; 
+    height: 100vh;
     
 
     @include media("<=tablet") {
