@@ -6,132 +6,16 @@ img{
   filter: brightness(0.90);
 }
 
-/*** Left panel Start ****/
-.left-panel-main-container { 
-  position: relative; 
-  width: 100%; /* for IE 6 */
-  display: inline-block;
-  overflow: hidden;
-  height: 23.5em;
-  color: white;
+.zoom-image:hover{
   img{
-    filter: brightness(0.80);
-  } 
-}
-
- .left-panel-main-container img { 
-  transition: transform .4s; 
-  width: 100%; 
-  height: 23.5em;
-}
-
-.left-panel-main-container .course-content { 
-  position: absolute; 
-  padding:10px;
-  left: 0; 
-  width: 100%; 
-  cursor: pointer;  
-}
-
-
-/*** Left panel ends ****/
-
-/*** Left panel second section  Start***/
-
-.section2-courses{
-  height: 2.5em;
-  cursor: pointer;
-}
-
-.section2-courses:hover{
-  cursor: pointer;
-  
-}
-
-.section2-courses-img-container{   
-  display: inline-block;
-  overflow: hidden;
-  img:hover{
-    transform: scale(1.05);
-    transform-origin: 5% 5% 5% 5%;
-    border-bottom: 5px solid orangered;
+    transform: scale(1.2);
     cursor: pointer;
   }
 }
-
-.section2-courses-img-container-img{
-  width: 100%; 
-  height: 14em;
-}
-
-/** Left panel second section end **/
-
-
-/*** Left panel courses Start **/
-
-.left-panel-courses{
-  align-content: center;
-   cursor: pointer;
-} 
-
-
-.left-panel-courses:hover{
-  align-content: center;
-  border-left: 3px solid orangered;
-  cursor: pointer;
-  h5{
-    color: black;
-  }
-  h3{
-    color: #787878;
-  }
-}
-
-/** Left panel course end **/
-
-
-.main-Courses:hover{
-   height: 2.5em;
-   cursor: pointer;
-}
-
-
-
-
-
-
  
-
-
- .zoom-image:hover{
-  transform: scale(1.2);
-  transform-origin: 20% 20% 20% 20%;
-  cursor: pointer;
-}
-
-
-
-
- 
-
-
-
-
-
-
-
-.grad1 { 
-  height: 100%;
-  background-image: linear-gradient( #f7971e #ffd200); 
-}
 
 ::ng-deep .mat-figure{
   display: block !important;
-}
-
-::ng-deep .onhover:hover{
-    color: gray;
-    cursor: pointer;
 }
 
 ::ng-deep .mat-grid-tile .mat-figure {
@@ -305,7 +189,7 @@ img{
 
 .main-panel{
   @include media("<=tablet") {
-   display: none;
+  // display: none;
   } 
   @include media("<=phone") {
     display: none;
@@ -313,6 +197,7 @@ img{
 }
 
 .tablet-only{
+  
   padding: 15px;
   display: none;
   @include media(( "<=tablet") and (">=phone")){
@@ -342,38 +227,103 @@ img{
     padding-right: 40px;
     width: 100vh; 
     height: 100vh;
-    
-
     @include media("<=tablet") {
-      background-color: pink;
-      width: 60%;
-    } 
-    @include media("<=phone") {
-      padding:10px ;
       width: 100%;
-      background-color: green;
-      
+      height: 100%;
+      float: left;
+      padding-left:25px;
+      padding-right: 40px;
+      width: 100vh; 
+      height: 120vh;
+      display: block;
+    } 
+
+    .left-panel-main-container { 
+      position: relative; 
+      width: 100%; /* for IE 6 */
+      display: inline-block;
+      overflow: hidden;
+      height: 23.5em;
+      color: white;
+      img{
+        filter: brightness(0.80);
+        transition: transform .4s; 
+        width: 100%; 
+        height: 23.5em;
+      }
+      .course-content { 
+        position: absolute; 
+        padding:10px;
+        left: 0; 
+        width: 100%; 
+        cursor: pointer;  
+      } 
+      @include media( "<=tablet"){
+        
+      } 
+
     }
 
-
-     
-
+    .section2-courses{
+      height: 2.5em;
+      cursor: pointer;
+      .section2-courses-img-container{   
+        display: inline-block;
+        overflow: hidden;
+       
+      }
+      .section2-courses-img-container-img{
+        width: 100%; 
+        height: 14em;
+      }
+      .section2-courses-img-container:hover{   
+        display: inline-block;
+        overflow: hidden;
+        img{
+          transform: scale(1.05);
+          transform-origin: 5% 5% 5% 5%;
+          border-bottom: 5px solid orangered;
+          cursor: pointer;
+        }
+      }
+    }
+    
   }
+
+
+
   .right-panel{
     height: 100%;
     width: 40%;
     float: right;
 
     @include media("<=tablet") {
-      background-color: pink;
-      width: 40%;
+      width: 100vh;
+      height: 100%;
+      display: block;
+      padding-left:25px;
+      padding-right: 40px;
+      padding-top: 15px;
     } 
-    @include media("<=phone") {
-      padding:10px ;
-      background-color: green;
-      display: none;
-    }
 
+      
+    .right-panel-courses{
+      align-content: center;
+      cursor: pointer;
+    } 
+
+
+    .right-panel-courses:hover{
+      align-content: center;
+      border-left: 3px solid orangered;
+      cursor: pointer;
+      h5{
+        color: black;
+      }
+      h3{
+        color: #787878;
+      }
+    }
   }
 }
 
