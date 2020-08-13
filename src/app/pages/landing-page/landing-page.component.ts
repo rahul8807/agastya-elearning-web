@@ -4,6 +4,7 @@ import { ContentService } from 'src/app/services/content.service';
 import { Category } from 'src/app/models/category.model';
 import { ViewportRuler } from '@angular/cdk/overlay';
 
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
