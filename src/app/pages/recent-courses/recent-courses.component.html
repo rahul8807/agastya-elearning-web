@@ -11,10 +11,10 @@
    <div class="main-panel"> 
     <div class="container" style="margin-top: 5px;">
         <div class="row">
-
+            
             <div class="left-panel" >
             
-                <mat-grid-list cols="1"  >
+                <mat-grid-list cols="1"  *ngIf="course1">
                     <div class="mat-card left-panel-main-container">
                         <div  class="zoom-image">
                             <img [src]="course1.image.formats.small.url"/>
@@ -30,11 +30,11 @@
                 <div style="padding-top:15px;"> 
                     <mat-grid-list cols="2"  gutterSize=25px rowHeight="20.5rem">
 
-                        <mat-grid-tile class="mat-card section2-courses" > 
+                        <mat-grid-tile class="mat-card section2-courses"  > 
                             <div>
                                 <div class="section2-courses-img-container">
                                     <div class="">
-                                        <img [src]="course2.image.formats.small.url" class="section2-courses-img-container-img "   />
+                                        <img [src]="course1.image.formats.small.url" class="section2-courses-img-container-img "   />
                                     </div>
                                     <div style="padding-left: 5px;">
                                         <h5><b>{{course2.name | uppercase }}</b> </h5>
@@ -43,11 +43,11 @@
                                 </div>
                             </div>
                         </mat-grid-tile>
-                        <mat-grid-tile class="mat-card section2-courses" > 
+                        <mat-grid-tile class="mat-card section2-courses" *ngIf="course3"> 
                             <div>
                                 <div class="section2-courses-img-container">
                                     <div class="">
-                                        <img [src]="course3.image.formats.small.url" class="section2-courses-img-container-img "   />
+                                        <img [src]="course1.image.formats.small.url" class="section2-courses-img-container-img "   />
                                     </div>
                                     <div style="padding-left: 5px;">
                                         <h5><b>{{course3.name | uppercase }}</b> </h5>
@@ -59,11 +59,12 @@
                     </mat-grid-list>
                 </div>
 
+                
             </div>
 
 
             <div class="right-panel"  >
-                <div *ngFor="let course of recentCourses">
+                <div *ngFor="let course of restOfTheCourses">
                     <mat-grid-list cols="3" rowHeight="6rem" class="mat-card right-panel-courses" (click)="clickMe()" >
                         <mat-grid-tile> 
                             <img mat-card-image style="height: 100%; width: 100%;" [src]='course.image.formats.thumbnail.url'></mat-grid-tile>
@@ -79,12 +80,14 @@
     
                  
             </div>
+            
         </div>
+        
     </div>
     </div>
 
     <div class="mobile-only">
-        <div *ngFor="let course of recentCourses">
+        <div *ngFor="let course of restOfTheCoursesMobile">
             <mat-grid-list cols="3" rowHeight="6rem" class="mat-card right-panel-courses" (click)="clickMe()" style="width: 100%;">
                 <mat-grid-tile> 
                     <img mat-card-image style="height: 100%; width: 100%;" [src]='course.image.formats.thumbnail.url'>

@@ -287,6 +287,15 @@ img{
         }
       }
     }
+
+    .section2-courses:hover{
+      img{
+        transform: scale(1.05);
+        transform-origin: 5% 5% 5% 5%;
+        border-bottom: 5px solid orangered;
+        cursor: pointer;
+      }
+    }
     
   }
 
