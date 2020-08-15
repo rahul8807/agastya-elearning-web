@@ -16,76 +16,51 @@ export class RecentCoursesComponent implements OnInit {
   public subTopics : SubTopic[];
   public course1 : SubTopic ;
   public course2 : SubTopic;
-  public course3 : SubTopic;
-  
+  public course3 : SubTopic; 
   public restOfTheCourses : SubTopic[];
   public restOfTheCoursesMobile : SubTopic[];  
 
+  sortRecentCourses(subtopic1: SubTopic, subtopic2: SubTopic) {
+    if ( subtopic1.id < subtopic2.id ){
+      return -1;
+    }else if ( subtopic1.id > subtopic2.id ){
+      return 1;
+    }else{
+     return 0;
+    }
+  } 
+
   constructor(private contentService : ContentService) { }  
 
-  ngOnInit(): void {
-
+  ngOnInit(){
     this.contentService.getFeaturedSubTopic().subscribe((data: any) => {
       if (data[0].subTopics) {
-        this.subTopics = data[0].subTopics;
-        this.course1 = this.subTopics[0];
-        this.course2 = this.subTopics[1];
-        this.course3 = this.subTopics[2];
-        this.restOfTheCourses = new Array<SubTopic>(6)
-        this.restOfTheCourses.fill(this.course1,0,6);
 
-        this.restOfTheCoursesMobile = new Array<SubTopic>(9)
-        this.restOfTheCoursesMobile.fill(this.course1,0,9)
+        this.subTopics = data[0].subTopics;
+        this.subTopics.sort(this.sortRecentCourses)
+
+        if(this.subTopics.length > 10){
+          this.subTopics = this.subTopics.slice(this.subTopics.length-10, this.subTopics.length)
+        }else{
+          this.subTopics = this.subTopics.slice(0,this.subTopics.length);
+          this.subTopics.reverse;
+          let countForFillPending = 10 - this.subTopics.length 
+          for(let i =0; i<countForFillPending; i++){
+            this.subTopics.push(this.subTopics[0]);
+          }
+        }
+
+        this.course1 = this.subTopics[5];
+        this.course2 = this.subTopics[0];
+        this.course3 = this.subTopics[4];
+
+        this.restOfTheCourses = this.subTopics.slice(0,6);
+        this.restOfTheCoursesMobile = this.subTopics
+
       }
     });
   }
 
 
 
-
-
-  clickMe(){
-    alert('Hi Work in progress')
-  }
-
-  
 }
-
-
-/*
-
-
-
-    this.contentService.getFeaturedSubTopic().subscribe(subTopics => {
-      this.recentCourses = subTopics;
-      console.log(this.recentCourses)
-
-      this.course1 = this.recentCourses[0].subTopics[0] as SubTopic
-
-      alert(this.course1)
-      console.log(this.course1)
-
-      this.course2 = this.recentCourses[0].subTopics[1]
-      this.course3 = this.recentCourses.subTopics[2]
-      this.course4 = this.recentCourses.subTopics[3]
-      
-
-
-    });
-
-
-data =>{
-       this.recentCourses = data
-
-       this.course1 = this.recentCourses[0]
-       this.course2 = this.recentCourses[1]
-       this.course3 = this.recentCourses[2]
-       this.course4 = this.recentCourses[3]
-       this.recentCourses.map(data => {
-        let d = data 
-        d.name = data.name.trim()
-        d.description = data.description.trim()
-        return d;
-       } )
-    }
-    */

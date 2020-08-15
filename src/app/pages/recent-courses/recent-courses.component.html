@@ -17,7 +17,7 @@
                 <mat-grid-list cols="1"  *ngIf="course1">
                     <div class="mat-card left-panel-main-container">
                         <div  class="zoom-image">
-                            <img [src]="course1.image.formats.small.url"/>
+                            <img [src]="course1.image?.formats.large.url"/>
                         <span class="course-content">
                             <h5><b>{{course1.name | uppercase }}</b> </h5>
                             <h1><b>{{course1.description}}</b></h1>
@@ -31,23 +31,23 @@
                     <mat-grid-list cols="2"  gutterSize=25px rowHeight="20.5rem">
 
                         <mat-grid-tile class="mat-card section2-courses"  > 
-                            <div>
+                            <div *ngIf="course2">
                                 <div class="section2-courses-img-container">
                                     <div class="">
-                                        <img [src]="course1.image.formats.small.url" class="section2-courses-img-container-img "   />
+                                        <img [src]="course2.image.formats.small.url" class="section2-courses-img-container-img "   />
                                     </div>
                                     <div style="padding-left: 5px;">
                                         <h5><b>{{course2.name | uppercase }}</b> </h5>
-                                        <h1><b>{{course2.description}}</b></h1>
+                                        <h1><b>{{(course2.description)? (course2.description | slice:0:120)+'..':(course2.description) }}</b></h1>
                                     </div>
                                 </div>
                             </div>
                         </mat-grid-tile>
                         <mat-grid-tile class="mat-card section2-courses" *ngIf="course3"> 
-                            <div>
+                            <div *ngIf="course3">
                                 <div class="section2-courses-img-container">
                                     <div class="">
-                                        <img [src]="course1.image.formats.small.url" class="section2-courses-img-container-img "   />
+                                        <img [src]="course3.image.formats.small.url" class="section2-courses-img-container-img "   />
                                     </div>
                                     <div style="padding-left: 5px;">
                                         <h5><b>{{course3.name | uppercase }}</b> </h5>
@@ -63,9 +63,9 @@
             </div>
 
 
-            <div class="right-panel"  >
-                <div *ngFor="let course of restOfTheCourses">
-                    <mat-grid-list cols="3" rowHeight="6rem" class="mat-card right-panel-courses" (click)="clickMe()" >
+            <div class="right-panel" *ngIf="restOfTheCourses" >
+                <div  *ngFor="let course of restOfTheCourses">
+                    <mat-grid-list cols="3" rowHeight="6rem" class="mat-card right-panel-courses"  >
                         <mat-grid-tile> 
                             <img mat-card-image style="height: 100%; width: 100%;" [src]='course.image.formats.thumbnail.url'></mat-grid-tile>
                             <mat-grid-tile colspan=2  >
@@ -86,9 +86,9 @@
     </div>
     </div>
 
-    <div class="mobile-only">
+    <div class="mobile-only" *ngIf="restOfTheCourses">
         <div *ngFor="let course of restOfTheCoursesMobile">
-            <mat-grid-list cols="3" rowHeight="6rem" class="mat-card right-panel-courses" (click)="clickMe()" style="width: 100%;">
+            <mat-grid-list cols="3" rowHeight="6rem" class="mat-card right-panel-courses"  style="width: 100%;">
                 <mat-grid-tile> 
                     <img mat-card-image style="height: 100%; width: 100%;" [src]='course.image.formats.thumbnail.url'>
                 </mat-grid-tile>
